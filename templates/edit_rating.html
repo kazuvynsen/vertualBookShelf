@@ -1,0 +1,10 @@
+</head>
+<body>
+     <form action="{{ url_for('edit') }}" method="post">
+        <p>Book Name: {{book.title}}</p>
+        <p>Current Rating: {{book.rating}}</p>
+        <input name="id" value="{{book.rating}}">
+        <button type="submit">登録</button>
+     </form>
+</body>
+</html>
