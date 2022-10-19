@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+# Gunicorn ver20.1.0
+import gunicorn
 
 app = Flask(__name__)
 
