@@ -1,10 +1,14 @@
 </head>
 <body>
      <form action="{{ url_for('edit') }}" method="post">
-        <p>Book Name: {{book.title}}</p>
-        <p>Current Rating: {{book.rating}}</p>
-        <input name="id" value="{{book.rating}}">
-        <button type="submit">登録</button>
+        <input hidden="hidden" name="id" value="{{book.id}}">
+        <label>Book Name</label>
+        <input name="title" type="text" value="{{book.title}}">
+        <label>Book Author</label>
+        <input name="author" type="text" value="{{book.author}}">
+        <label>Rating</label>
+        <input name="rating" type="text" value="{{book.rating}}">
+        <button type="submit">更新</button>
      </form>
 </body>
 </html>

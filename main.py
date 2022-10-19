@@ -51,12 +51,25 @@ def edit():
     if request.method == "POST":
         book_id = request.form['id']
         book_to_update = Book.query.get(book_id)
+        print(request.form['title'])
+        book_to_update.title = request.form['title']
+        book_to_update.author = request.form['author']
         book_to_update.rating = request.form['rating']
         db.session.commit()
         return redirect(url_for('home'))
     book_id = request.args.get('id')
-    book_selected = Book.query.get(book_id)
-    return render_template("edit_rating.html", book=book_selected)
+    selected_book = Book.query.get(book_id)
+    print(selected_book.title)
+    return render_template('edit_rating.html', book=selected_book)
+
+
+@app.route('/delete', methods=['GET', 'POST'])
+def delete():
+    book_id = request.args.get('id')
+    book_to_delete = Book.query.get(book_id)
+    db.session.delete(book_to_delete)
+    db.session.commit()
+    return redirect(url_for('home'))
 
 
 if __name__ == "__main__":
